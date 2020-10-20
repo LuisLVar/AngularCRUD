@@ -1,0 +1,63 @@
+<!-- Navigation -->
+<header class="navbar navbar-expand navbar-dark bg-primary fixed-top flex-md-row ">
+    <div class="container">
+        <a class="navbar-brand" routerLink="inicio">
+            <img src="https://st2.depositphotos.com/3665639/7453/v/450/depositphotos_74537483-stock-illustration-shopping-cart-icon.jpg" style="width: 30px; height: 30px;" class="rounded-circle">
+            <span> Likes</span>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/inicio"><i class="fas fa-id-badge"></i> Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/productos"><i class="fas fa-mobile-alt"></i> Productos</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<br><br><br><br><br><br>
+
+
+
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-3" *ngFor="let producto of productos">
+            <div class="card border-secondary shadow p-3 mb-5 rounded">
+                <div class="card-header bg-light text-dark d-flex justify-content-between align-items-center">
+                    Producto: {{producto.nombre}}
+                </div>
+                <div class="card-body">
+                    <div class="row">
+
+                    </div>
+                    <hr>
+                    <div *ngIf="actual.producto == producto.producto">
+                        <button type="button" class="btn btn-outline-primary mr-1" (click)="comprarProducto(producto)">Actual</button>
+                    </div>
+                    <div *ngIf="actual.producto != producto.producto">
+                        <button type="button" class="btn btn-outline-primary mr-1" (click)="comprarProducto(producto)">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card border-secondary shadow p-3 mb-5 rounded">
+                <div class="card-header bg-light text-dark d-flex justify-content-between align-items-center">
+                    Actual: {{actual.nombre}}
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <img src="http://localhost:3010/Captura%20de%20pantalla%20de%202020-10-13%2020-38-51.png" />
+                    </div>
+                    <hr>
+                    <button type="button" class="btn btn-outline-primary mr-1" (click)="comprarProducto(producto)">Comprar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
